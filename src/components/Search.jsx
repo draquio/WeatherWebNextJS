@@ -9,7 +9,7 @@ const Search = () => {
   return (
     <div className="max-w-80 w-full relative">
       <input
-        className="focus-visible:outline-none box-border p-2 w-full"
+        className="focus-visible:outline-none box-border p-2 w-full rounded"
         type="text"
         placeholder="Ciudad ..."
         value={query}

@@ -1,13 +1,12 @@
-import { getFutureWeather } from "@/services/weather";
 import Image from "next/image";
 
-const Predictions = async ({ city }) => {
-  const data = await getFutureWeather(city);
+const Predictions = async ({ data }) => {
   const futureWeather = data.slice(1, 7);
+  if (!data) return ""
   return (
     <>
       <h2 className="text-center font-bold text-2xl my-7">Clima de la semana</h2>
-      <div className="grid grid-cols-6 gap-x-2">
+      <div className="grid grid-cols-3 gap-x-2">
         {futureWeather.map((weather, index) => (
           <div
             key={index}

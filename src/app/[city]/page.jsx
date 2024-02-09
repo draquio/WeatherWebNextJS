@@ -1,63 +1,30 @@
 import ByHours from "@/components/ByHours";
+import CurrentStats from "@/components/CurrentStats";
 import Future from "@/components/Future";
-import { getCurrent } from "@/services/weather";
-import Image from "next/image";
-
+import MainWeather from "@/components/MainWeather";
+import Minmax from "@/components/Minmax";
+import { getCurrent, getFutureWeather } from "@/services/weather";
 const ResultPage = async ({ params, cityname }) => {
   const { current, city, maxmin } = await getCurrent(cityname || params.city);
+  const futureweather = await getFutureWeather(cityname || params.city);
   if (!current) return "";
   return (
-    <section>
+    <section className="mb-11">
       <div className="text-center">
         <h1 className="text-3xl font-bold">
           {city.city}, {city.country}
         </h1>
-        <p className="text-lg">{city.localtime}</p>
+        <p className="text-lg">{city.time}</p>
       </div>
       <article className="flex justify-between my-16">
-        <div className="flex items-center border-r-[1px] w-1/2 border-[#ffffff56] justify-center">
-          <Image
-            width={128}
-            height={128}
-            src={current.weather_icon}
-            alt="Clima actual"
-          />
-          <div className="text-center">
-            <h2 className="text-5xl">{current.temp}°C</h2>
-            <p>{current.weather_text}</p>
-          </div>
-        </div>
-        <div className="w-1/2 p-4">
-          <div className="grid grid-cols-3 gap-y-10">
-            <div className="text-center flex flex-col">
-              <span>{maxmin.max}°C</span>
-              <span>Máxima</span>
-            </div>
-            <div className="text-center flex flex-col">
-              <span>{current.wind} km/h</span>
-              <span>Viento</span>
-            </div>
-            <div className="text-center flex flex-col">
-              <span>{current.humidity}%</span>
-              <span>Humedad</span>
-            </div>
-            <div className="text-center flex flex-col">
-              <span>{maxmin.min}°C</span>
-              <span>Mínima</span>
-            </div>
-            <div className="text-center flex flex-col">
-              <span>{current.feelslike}°C</span>
-              <span>Sens. Térm.</span>
-            </div>
-            <div className="text-center flex flex-col">
-            <span>{current.cloud}%</span>
-              <span>Nubosidad</span>
-            </div>
-          </div>
-        </div>
+       <MainWeather current={current} />
+       <Minmax max={maxmin.max} min={maxmin.min} />
       </article>
-      <Future city={city.city} />
-      <ByHours />
+      <article>
+        <CurrentStats current={current} time={futureweather[0]} />
+      </article>
+      <Future data={futureweather} />
+      {/* <ByHours city={city.city}/> */}
     </section>
   );
 };

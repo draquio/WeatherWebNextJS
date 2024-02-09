@@ -9,7 +9,8 @@ export const mapCurrentWeather = (currentWeather) => {
     humidity: currentWeather.humidity,
     feelslike: Math.round(currentWeather.feelslike_c),
     last_updated: currentWeather.last_updated,
-    cloud: currentWeather.cloud
+    cloud: currentWeather.cloud,
+    uv: currentWeather.uv,
   };
   return mapCurrent;
 };
@@ -19,7 +20,7 @@ export const mapCurrentCity = (currentCity) => {
     city: currentCity.name,
     country: currentCity.country,
     localtime: FormatDate(currentCity.localtime),
-    time_zone: currentCity.tz_id,
+    time: formatTime(currentCity.localtime_epoch),
   };
   return mapCurrent;
 };
@@ -38,47 +39,73 @@ export const MapFutureWeather = (weather) => {
     min: Math.round(weather.day.mintemp_c),
     avg: Math.round(weather.day.avgtemp_c),
     text: weather.day.condition.text,
-    icon:  "https:" + weather.day.condition.icon.replace("64x64", "128x128"),
-    day: getDay(weather.date)
+    icon: "https:" + weather.day.condition.icon.replace("64x64", "128x128"),
+    day: getDay(weather.date),
+    sunrise: weather.astro.sunrise,
+    sunset: weather.astro.sunset,
   }));
   return MapWeather;
 };
 
-
 const getDay = (date) => {
   const day = new Date(date);
-  const days = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb', 'Dom'];
+  const days = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sáb", "Dom"];
   return days[day.getDay()];
-}
+};
 
 const FormatDate = (date) => {
-  const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  const months = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
   const newdate = new Date(date);
   const day = newdate.getDate();
   const month = months[newdate.getMonth()];
   return `${day} de ${month}`;
-}
-
+};
 
 export const mapHoursCurrent = (current) => {
-  const maphours = current.forecast.forecastday[0].hour.map(current => ({
+  const maphours = current.forecast.forecastday[0].hour.map((current) => ({
     time: getHour(current.time),
     temp: Math.round(current.temp_c),
-    text:current.condition.text,
+    text: current.condition.text,
     icon: "https:" + current.condition.icon,
-  }))
-  // return maphours
+  }));
   return filterHours(maphours);
-}
+};
 const getHour = (date) => {
-  const hour = date.slice(11,16)
+  const hour = date.slice(11, 16);
   return hour;
-}
+};
 
 const filterHours = (hours) => {
   const currentDate = new Date();
-  const currentHour = `${currentDate.getHours().toString().padStart(2, '0')}:00`;
-  const startIndex = hours.findIndex(hour => hour.time === currentHour);
+  const currentHour = `${currentDate
+    .getHours()
+    .toString()
+    .padStart(2, "0")}:00`;
+  const startIndex = hours.findIndex((hour) => hour.time === currentHour);
   const hoursFromNow = startIndex >= 0 ? hours.slice(startIndex) : [];
   return hoursFromNow;
-}
+};
+
+const formatTime = (timestamp) => {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+  const time = `${day}, de ${month}, ${hour}:${minutes}`
+  return time
+};

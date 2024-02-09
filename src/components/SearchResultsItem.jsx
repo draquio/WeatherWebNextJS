@@ -7,7 +7,7 @@ const SearchResultsItem = ({city, setQuery}) => {
         setQuery("")
     }
   return (
-    <div className='hover:bg-slate-100 cursor-pointer' onClick={handleTakeCity}>
+    <div className='cursor-pointer' onClick={handleTakeCity}>
       {city.name} ({city.country})
     </div>
   )

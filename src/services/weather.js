@@ -9,7 +9,7 @@ import {
 export const getFutureWeather = async (query = "") => {
   try {
     const url = `${ENV.API_URL}${ENV.API_Routes.future}?key=${process.env.API_Key}&lang=es&days=7&q=${query}`;
-    const response = await fetch(url);
+    const response = await fetch(url, {cache: 'no-store'});
     const result = await response.json();
     if (response.status === 200) {
       const mapFuture = MapFutureWeather(result);
@@ -24,7 +24,7 @@ export const getFutureWeather = async (query = "") => {
 export const getCurrent = async (query = "") => {
   try {
     const url = `${ENV.API_URL}${ENV.API_Routes.current}?key=${process.env.API_Key}&lang=es&q=${query}`;
-    const response = await fetch(url);
+    const response = await fetch(url, {cache: 'no-store'});
     const result = await response.json();
     if (response.status === 200) {
       const current = mapCurrentWeather(result.current);
@@ -42,7 +42,7 @@ export const getCurrent = async (query = "") => {
 export const getCurrentByHour = async (query = "") => {
   try {
     const url = `${ENV.API_URL}${ENV.API_Routes.future}?key=${process.env.API_Key}&lang=es&q=${query}&days=1`;
-    const response = await fetch(url);
+    const response = await fetch(url, {cache: 'no-store'});
     const result = await response.json();
     if (response.status === 200) {
       return mapHoursCurrent(result);
@@ -77,3 +77,4 @@ export const getCityByIP = async () => {
     throw result;
   } catch (error) {}
 };
+

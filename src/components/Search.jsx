@@ -2,19 +2,22 @@
 
 import { useState } from "react";
 import SearchResults from "./SearchResults";
+import { SearchIcon } from "@/Icons/Icons";
 
 const Search = () => {
   const [query, setQuery] = useState("");
-
   return (
-    <div className="max-w-80 w-full relative">
+    <div className="w-full relative">
       <input
-        className="focus-visible:outline-none box-border p-2 w-full rounded"
+        className="focus-visible:outline-none box-border py-3 w-full rounded-3xl pl-12 bg-[#ffffff14] text-white placeholder:text-white font-sans"
         type="text"
         placeholder="Ciudad ..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+      <span className="absolute left-0 ml-3 mt-3 text-2xl text-white">
+        <SearchIcon />
+      </span>
       {query.length > 2 && <SearchResults query={query} setQuery={setQuery} />}
     </div>
   );

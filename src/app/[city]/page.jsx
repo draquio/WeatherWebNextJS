@@ -6,7 +6,7 @@ import MainWeather from "@/components/MainWeather";
 import Minmax from "@/components/Minmax";
 import { getCurrent, getFutureWeather } from "@/services/weather";
 const ResultPage = async ({ params, cityname }) => {
-  const { current, city, maxmin } = await getCurrent(cityname || params.city);
+  const { current, city, maxmin } = await getCurrent(cityname|| params.city);
   const futureweather = await getFutureWeather(cityname || params.city);
   if (!current) return <Loader />;
   return (

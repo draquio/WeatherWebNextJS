@@ -2,7 +2,7 @@ import "./Loader.css";
 
 const Loader = () => {
   return (
-    <div className="h-dvh flex justify-center items-center">
+    <div className="h-dvh flex justify-center">
       <div className="container_loader">
         <div className="cloud front">
           <span className="left-front"></span>

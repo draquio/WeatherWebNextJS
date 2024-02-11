@@ -5,8 +5,6 @@ import SearchResults from "./SearchResults";
 import { SearchIcon } from "@/Icons/Icons";
 
 const Search = () => {
-  console.log(process.env.NEXT_PUBLIC_API_Key);
-  console.log(process.env.API_Key);
   const [query, setQuery] = useState("");
   return (
     <div className="w-full relative">

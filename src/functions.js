@@ -20,7 +20,7 @@ export const mapCurrentCity = (currentCity) => {
     city: currentCity.name,
     country: currentCity.country,
     localtime: FormatDate(currentCity.localtime),
-    time: formatTime(currentCity.localtime_epoch),
+    // time: formatTime(currentCity.localtime_epoch),
   };
   return mapCurrent;
 };
@@ -81,7 +81,8 @@ export const mapHoursCurrent = (current) => {
     text: current.condition.text,
     icon: "https:" + current.condition.icon,
   }));
-  return filterHours(maphours);
+  // return filterHours(maphours);
+  return maphours;
 };
 const getHour = (date) => {
   const hour = date.slice(11, 16);
@@ -99,13 +100,12 @@ const filterHours = (hours) => {
   return hoursFromNow;
 };
 
-const formatTime = (timestamp) => {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  let hour = date.getHours();
-  let minutes = date.getMinutes();
-  const time = `${day}, de ${month}, ${hour}:${minutes}`
-  return time
-};
+// const formatTime = (timestamp) => {
+//   let date = new Date(timestamp * 1000);
+//   let day = date.getDate();
+//   let month = date.getMonth() + 1;
+//   let hour = date.getHours();
+//   let minutes = date.getMinutes();
+//   const time = `${day}, de ${month}, ${hour}:${minutes}`
+//   return time
+// };

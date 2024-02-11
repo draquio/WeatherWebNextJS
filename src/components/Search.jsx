@@ -11,7 +11,7 @@ const Search = () => {
       <input
         className="md:text-base text-xl focus-visible:outline-none box-border py-3 w-full rounded-3xl pl-12 bg-[var(--transparent-bg)] text-white placeholder:text-white font-sans"
         type="text"
-        placeholder="Buenos aires, Santiago, Bogotá, etc.."
+        placeholder="Buenos Aires, Santiago, Bogotá, etc.."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

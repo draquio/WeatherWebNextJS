@@ -9,6 +9,7 @@ const MainWeather = ({current}) => {
       height={150}
       src={current.weather_icon}
       alt="Clima actual"
+      priority
     />
     <div className="ml-8">
       <h2 className="text-7xl">{current.temp}°</h2>

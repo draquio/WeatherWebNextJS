@@ -9,9 +9,9 @@ const Search = () => {
   return (
     <div className="w-full relative">
       <input
-        className="focus-visible:outline-none box-border py-3 w-full rounded-3xl pl-12 bg-[#ffffff14] text-white placeholder:text-white font-sans"
+        className="md:text-base text-xl focus-visible:outline-none box-border py-3 w-full rounded-3xl pl-12 bg-[var(--transparent-bg)] text-white placeholder:text-white font-sans"
         type="text"
-        placeholder="Ciudad ..."
+        placeholder="Buenos aires, Santiago, Bogotá, etc.."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

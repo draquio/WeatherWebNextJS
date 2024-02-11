@@ -13,11 +13,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col items-center h-[100%] bg-gradient-to-b from-[#134299] to-[#022a6e]">
-        <Nav />
-        <main className="w-full max-w-5xl p-4  text-white">{children}</main>
+      {/* <body className="flex flex-col items-center h-[100%] bg-gradient-to-b from-[#134299] to-[#022a6e]"> */}
+      <body className="flex flex-col items-center h-[100%] bg-gradient-to-b from-[var(--color-bg-from)] to-[var(--color-bg-to)]">
+        <header className="max-w-4xl mt-8 w-full">
+          <Nav />
+        </header>
+        <main className="w-full max-w-4xl px-4 text-white">{children}</main>
         <Footer />
-        </body>
+      </body>
     </html>
   );
 }

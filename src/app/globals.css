@@ -7,3 +7,9 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+:root {
+  --color-bg-from: #134299;
+  --color-bg-to: #022a6e;
+  --transparent-bg: #ffffff0a;
+  --transparent-bg-hover: #ffffff1c;
+}

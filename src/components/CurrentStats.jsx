@@ -3,8 +3,8 @@ import { Cloud, DropIcon, SunriseIcon, SunsetIcon, ThermometerIcon, WindIcon } f
 const CurrentStats = ({ current, time }) => {;
   return (
     <div className="w-full flex justify-center">
-      <div className="w-3/4 p-4">
-        <div className="grid grid-cols-3 gap-y-10">
+      <div className="md:w-3/4 w-full py-12">
+        <div className="grid md:grid-cols-3 grid-cols-2 gap-y-10">
           <div className="flex justify-center items-center gap-4">
             <span className="mt-[-8px]">
               <DropIcon />

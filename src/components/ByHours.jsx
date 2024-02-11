@@ -1,27 +1,30 @@
-import { getCurrentByHour } from "@/services/weather"
+import { getCurrentByHour } from "@/services/weather";
 import Image from "next/image";
 
 const ByHours = async () => {
-    const weatherByHour = await getCurrentByHour("Tarija");
+  const weatherByHour = await getCurrentByHour("Tarija");
   return (
-    <div className="flex gap-3 overflow-x-auto">
+    <section className="pt-5 pb-5">
+      <h2 className="text-2xl my-7 font-sans leading-[0]">Por hora</h2>
+      <div className="grid md:grid-cols-6 min-[500px]:grid-cols-3 grid-cols-2 gap-2 w-full flex-wrap">
         {weatherByHour.map((weather, index) => (
           <div
             key={index}
-            className="flex flex-col justify-center items-center bg-[#ffffff14] rounded py-4 hover:bg-[#ffffff36] transition-all duration-500 cursor-pointer max-w-[150px] min-w-[100px]"
+            className="flex gap-y-2 flex-col w-full items-center bg-[var(--transparent-bg)] hover:bg-[var(--transparent-bg-hover)] rounded-2xl py-4 transition-all duration-500 cursor-pointer"
           >
-            <h3 className="font-bold">{weather.time}</h3>
+            <h3 className="font-sans opacity-65">{weather.time}</h3>
             <Image
               src={weather.icon}
-              height={80}
-              width={80}
+              height={60}
+              width={60}
               alt={weather.text}
             />
-            <p className="font-bold text-2xl">{weather.temp}°C</p>
+            <p className="font-bold text-xl">{weather.temp}°C</p>
           </div>
         ))}
       </div>
-  )
-}
+    </section>
+  );
+};
 
-export default ByHours
+export default ByHours;

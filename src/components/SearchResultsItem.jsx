@@ -7,7 +7,7 @@ const SearchResultsItem = ({city, setQuery}) => {
         setQuery("")
     }
   return (
-    <div className='cursor-pointer' onClick={handleTakeCity}>
+    <div className='cursor-pointer md:text-base text-xl' onClick={handleTakeCity}>
       {city.name} ({city.country})
     </div>
   )

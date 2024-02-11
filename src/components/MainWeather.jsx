@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const MainWeather = ({current}) => {
   return (
-    <div className="flex items-center w-1/2 justify-center">
+    <div className="flex items-center w-full md:w-1/2 justify-center">
     <Image
       width={150}
       height={150}

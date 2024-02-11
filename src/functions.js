@@ -48,7 +48,7 @@ export const MapFutureWeather = (weather) => {
 
 const getDay = (date) => {
   const day = new Date(date);
-  const days = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sáb", "Dom"];
+  const days = ["Dom","Lun", "Mar", "Mie", "Jue", "Vie", "Sáb"];
   return days[day.getDay()];
 };
 

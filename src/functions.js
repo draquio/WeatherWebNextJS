@@ -19,7 +19,6 @@ export const mapCurrentCity = (currentCity) => {
   const mapCurrent = {
     city: currentCity.name,
     country: currentCity.country,
-    localtime: FormatDate(currentCity.localtime),
   };
   return mapCurrent;
 };
@@ -52,26 +51,6 @@ const getDay = (date) => {
   return days[day.getDay()];
 };
 
-const FormatDate = (date) => {
-  const months = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
-  const newdate = new Date(date);
-  const day = newdate.getDate();
-  const month = months[newdate.getMonth()];
-  return `${day} de ${month}`;
-};
 
 export const mapHoursCurrent = (current) => {
   const maphours = current.forecast.forecastday[0].hour.map((current) => ({

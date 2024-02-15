@@ -17,7 +17,7 @@ export const getFutureWeather = async (query = "") => {
     }
     throw result;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -33,9 +33,9 @@ export const getCurrent = async (query = "") => {
       const city = mapCurrentCity(result.location);
       return { current, city, maxmin };
     }
-    throw result;
+    throw response.status;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -49,32 +49,8 @@ export const getCurrentByHour = async (query = "") => {
     }
     throw result;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
-const getIP = async () => {
-  try {
-    const response = await fetch("https://api.ipify.org/?format=json");
-    const result = await response.json();
-    if (response.status === 200) {
-      return result.ip;
-    }
-    throw result;
-  } catch (error) {
-    return error;
-  }
-};
-
-export const getCityByIP = async () => {
-  const ip = await getIP();
-  try {
-    const response = await fetch(`https://ipinfo.io/${ip}/json`);
-    const result = await response.json();
-    if (response.status === 200) {
-      return result.city;
-    }
-    throw result;
-  } catch (error) {}
-};
 

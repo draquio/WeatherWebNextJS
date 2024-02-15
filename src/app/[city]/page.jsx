@@ -13,7 +13,7 @@ const ResultPage = async ({ params }) => {
   const futureweather = await getFutureWeather(params.city);
   if (!current) return <Loader />;
   return (
-    <section className="mb-11 h-dvh">
+    <section className="mb-11 min-h-dvh">
       <article className="flex flex-col md:flex-row justify-between mt-4">
         <MainWeather current={current} />
         <Minmax

@@ -1,0 +1,40 @@
+.loader-searching {
+    width: 68px;
+    height: 68px;
+    position: relative;
+    transform: rotate(45deg);
+    margin: 40px auto 0 auto;
+    animation: fade-opa 0.3s ease-in-out all;
+  }
+  
+  .loader-searching:before,
+  .loader-searching:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50% 50% 0 50%;
+    background: #0000;
+    background-image: radial-gradient(circle 11.2px at 50% 50%,#0000 94%, #eacc01);
+  }
+  
+  .loader-searching:after {
+    animation: pulse-ytk0dhmd 1s infinite;
+    transform: perspective(336px) translateZ(0px);
+  }
+  
+  @keyframes pulse-ytk0dhmd {
+    to {
+      transform: perspective(336px) translateZ(168px);
+      opacity: 0;
+    }
+  }
+    
+  @keyframes fade-opa {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  

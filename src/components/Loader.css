@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fade-opa 0.3s ease-in-out;
 }
 
 .cloud {
@@ -105,15 +104,5 @@
 
   100% {
     transform: translateX(15px);
-  }
-}
-
-
-@keyframes fade-opa {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
   }
 }

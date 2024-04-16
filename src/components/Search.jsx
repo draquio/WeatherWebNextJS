@@ -1,11 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchResults from "./SearchResults";
 import { SearchIcon } from "@/Icons/Icons";
+import { searchCity } from "@/services/weather";
 
 const Search = () => {
   const [query, setQuery] = useState("");
+  const [city, setCity] = useState([]);
+  
+  useEffect(() => {
+    (async () => {
+      if (query.length > 3) {
+        setCity(await searchCity(query));
+      }
+    })();
+  }, [query]);
   return (
     <div className="w-full relative">
       <input
@@ -18,7 +28,7 @@ const Search = () => {
       <span className="absolute left-0 ml-3 mt-3 text-2xl text-white">
         <SearchIcon />
       </span>
-      {query.length > 2 && <SearchResults query={query} setQuery={setQuery} />}
+      {city && query.length > 3 && <SearchResults city={city} setQuery={setQuery} />}
     </div>
   );
 };

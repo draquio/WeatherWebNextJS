@@ -1,13 +1,12 @@
 import Image from "next/image";
 
 const Predictions = async ({ data }) => {
-  const futureWeather = data.slice(1, 7);
   if (!data) return "";
   return (
-    <section className="pt-5">
+    <div className="pt-5">
       <h2 className="text-2xl my-7 font-sans leading-[0]">Semanal</h2>
       <div className="grid md:grid-cols-3 min-[500px]:grid-cols-2  grid-cols-1 gap-x-2 w-full gap-y-2">
-        {futureWeather.map((weather, index) => (
+        {data.map((weather, index) => (
           <div
             key={index}
             className=" rounded-md py-4 bg-[var(--transparent-bg)] hover:bg-[var(--transparent-bg-hover)] transition-all duration-500 cursor-pointer"
@@ -38,7 +37,7 @@ const Predictions = async ({ data }) => {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

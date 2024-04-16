@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowUp } from "@/Icons/Icons";
 const Minmax = ({ min, max, city, country }) => {
   return (
-    <div className="w-full md:w-1/2 mt-16 mb-11 flex flex-col justify-center items-center gap-y-5 ">
+    <div className="w-full md:w-1/2 mt-16 mb-11 flex flex-col justify-center items-center gap-y-5">
       <h2 className="text-3xl font-serif font-bold text-center">
         {city}, {country}.
       </h2>

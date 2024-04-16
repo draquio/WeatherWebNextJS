@@ -4,6 +4,7 @@ import {
   mapCurrentCity,
   mapCurrentWeather,
   mapHoursCurrent,
+  mapSearchResult,
 } from "@/functions";
 
 export const getFutureWeather = async (query = "") => {
@@ -46,6 +47,22 @@ export const getCurrentByHour = async (query = "") => {
     const result = await response.json();
     if (response.status === 200) {
       return mapHoursCurrent(result);
+    }
+    throw result;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const searchCity = async (query = "") => {
+  try {
+    console.log(process.env.API_Key);
+    const url = `${ENV.API_URL}${ENV.API_Routes.search}?key=${process.env.NEXT_PUBLIC_API_Key}&q=${query}`;
+    console.log(url);
+    const response = await fetch(url, {cache: 'no-store'});
+    const result = await response.json();
+    if (response.status === 200) {
+      return mapSearchResult(result);
     }
     throw result;
   } catch (error) {

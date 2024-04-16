@@ -1,4 +1,3 @@
-import cities from "./cities.json";
 export const mapCurrentWeather = (currentWeather) => {
   const mapCurrent = {
     temp: currentWeather.temp_c,
@@ -23,13 +22,6 @@ export const mapCurrentCity = (currentCity) => {
   return mapCurrent;
 };
 
-export const findCity = (query) => {
-  const result = cities.filter((city) =>
-    city.name.toLowerCase().startsWith(query.toLowerCase())
-  );
-  return result.slice(0, 5);
-};
-
 export const MapFutureWeather = (weather) => {
   const MapWeather = weather.forecast.forecastday.map((weather) => ({
     date: weather.date,
@@ -47,10 +39,9 @@ export const MapFutureWeather = (weather) => {
 
 const getDay = (date) => {
   const day = new Date(date);
-  const days = ["Dom","Lun", "Mar", "Mie", "Jue", "Vie", "Sáb"];
+  const days = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sáb"];
   return days[day.getDay()];
 };
-
 
 export const mapHoursCurrent = (current) => {
   const maphours = current.forecast.forecastday[0].hour.map((current) => ({
@@ -66,4 +57,11 @@ const getHour = (date) => {
   return hour;
 };
 
-
+export const mapSearchResult = (results) => {
+  if(!results) return []
+  const mapped = results.map((result) => ({
+    name: `${result.name} (${result.country})`,
+    value: result.name,
+  }));
+  return mapped;
+};

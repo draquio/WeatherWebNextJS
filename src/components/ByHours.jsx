@@ -1,12 +1,13 @@
-import { getCurrentByHour } from "@/services/weather";
 import Image from "next/image";
 
-const ByHours = async ({city}) => {
-  const weatherByHour = await getCurrentByHour(city);
+const ByHours = async ({ weatherByHour }) => {
   return (
     <section className="pt-5 pb-5">
       <h2 className="text-2xl my-7 font-sans leading-[0]">Por hora</h2>
-      <div className="flex gap-2 overflow-x-auto flex-nowrap w-full pb-3" style={{'scrollbarColor':'#ffffff47 #072d76', 'scrollbarWidth':'thin'}}>
+      <div
+        className="flex gap-2 overflow-x-auto flex-nowrap w-full pb-3"
+        style={{ scrollbarColor: "#ffffff47 #072d76", scrollbarWidth: "thin" }}
+      >
         {weatherByHour.map((weather, index) => (
           <div
             key={index}

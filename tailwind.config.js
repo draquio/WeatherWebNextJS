@@ -12,31 +12,31 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      keyframes:{
-        fadeup:{
-          '0%': {
-            opacity: '0',
-            transform: 'translateY(30px)',
+      keyframes: {
+        fadeup: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(30px)",
           },
-          '100%': {
-            opacity: '1',
-            transform: 'translateY(0px)',
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0px)",
           },
         },
-        fade:{
-          '0%': {
-            opacity: '0',
+        fade: {
+          "0%": {
+            opacity: "0",
           },
-          '100%': {
-            opacity: '1',
+          "100%": {
+            opacity: "1",
           },
-        }
+        },
       },
       animation: {
-        fadeup: 'fadeup 0.3s ease-in-out',
-        fade: 'fade 0.3s ease-in-out',
+        fadeup: "fadeup 0.5s ease-in-out",
+        fade: "fade 0.5s ease-in-out",
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animation')],
 };

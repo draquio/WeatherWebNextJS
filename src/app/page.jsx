@@ -1,6 +1,5 @@
 "use client"
 import { useEffect } from "react";
-import Loader from "@/components/Loader";
 import { useRouter } from "next/navigation";
 import LoaderSearching from "@/components/LoaderSearching";
 const Home = () => {

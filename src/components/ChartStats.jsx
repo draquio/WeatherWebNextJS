@@ -2,7 +2,7 @@
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-const ChartStats = ({ data }) => {
+const ChartStats = ({ data, city }) => {
   const filteredData = data.filter((_, index) => index % 2 === 0);
   const info = {
     labels: filteredData.map((entry) => entry.time),
@@ -61,11 +61,10 @@ const ChartStats = ({ data }) => {
 
   return (
     <div className="h-[200px] mt-5 mb-10">
-      <h2 className="text-2xl my-7 font-sans leading-[0]">Hoy</h2>
+      <h2 className="text-2xl my-7 font-sans leading-[0]">Clima en {city}</h2>
       <Line
         data={info}
         options={options}
-        // height={30}
         plugins={[ChartDataLabels]}
       />
     </div>

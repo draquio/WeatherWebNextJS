@@ -33,13 +33,13 @@ const ResultPage = async ({ params }) => {
         <CurrentStats current={current} time={futureweather[0]} />
       </article>
       <article className="animation-delay-800 animate-fadeup fillmode-backwards">
-        <ChartStats data={weatherByHour} />
+        <ChartStats data={weatherByHour} city={city.city} />
       </article>
       <article className="animation-delay-[1200ms] animate-fadeup fillmode-backwards">
-        <Future data={futureweather} />
+        <Future data={futureweather} city={city.city}/>
       </article>
       <article className="animation-delay-[1600ms] animate-fadeup fillmode-backwards">
-        <ByHours weatherByHour={weatherByHour} />
+        <ByHours weatherByHour={weatherByHour} city={city.city}/>
       </article>
     </section>
   );

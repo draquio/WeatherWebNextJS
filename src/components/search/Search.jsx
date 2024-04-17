@@ -28,7 +28,7 @@ const Search = () => {
       <span className="absolute left-0 ml-3 mt-3 text-2xl text-white">
         <SearchIcon />
       </span>
-      {city && query.length > 3 && <SearchResults city={city} setQuery={setQuery} />}
+      {city && query.length > 3 && <SearchResults city={city} setQuery={setQuery} setCity={setCity} />}
     </div>
   );
 };

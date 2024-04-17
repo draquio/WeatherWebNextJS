@@ -1,7 +1,7 @@
 "use client"
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import LoaderSearching from "@/components/LoaderSearching";
+import LoaderSearching from "@/components/loaders/LoaderSearching";
 const Home = () => {
   const router = useRouter();
   useEffect(() => {
@@ -16,7 +16,7 @@ const Home = () => {
     })();
   }, [router]);
   return (
-    <div className="container max-w-7xl box-border min-h-dvh">
+    <div className="max-w-7xl box-border min-h-dvh">
       <LoaderSearching />
     </div>
   );

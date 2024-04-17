@@ -1,4 +1,4 @@
-import Loader from "@/components/Loader";
+import Loader from "@/components/loaders/Loader";
 import {
   getCurrent,
   getCurrentByHour,
@@ -6,12 +6,12 @@ import {
 } from "@/services/weather";
 
 import dynamic from "next/dynamic";
-const CurrentStats = dynamic(() => import("@/components/CurrentStats"));
-const Future = dynamic(() => import("@/components/Future"));
-const ByHours = dynamic(() => import("@/components/ByHours"));
-const MainWeather = dynamic(() => import("@/components/MainWeather"));
-const Minmax = dynamic(() => import("@/components/Minmax"));
-const ChartStats = dynamic(() => import("@/components/ChartStats"));
+const CurrentStats = dynamic(() => import("@/components/weather/CurrentStats"));
+const Future = dynamic(() => import("@/components/weather/Future"));
+const ByHours = dynamic(() => import("@/components/weather/ByHours"));
+const MainWeather = dynamic(() => import("@/components/weather/MainWeather"));
+const Minmax = dynamic(() => import("@/components/weather/Minmax"));
+const ChartStats = dynamic(() => import("@/components/weather/ChartStats"));
 
 const ResultPage = async ({ params }) => {
   const { current, city, maxmin } = await getCurrent(params.city);

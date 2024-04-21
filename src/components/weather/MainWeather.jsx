@@ -11,7 +11,7 @@ const MainWeather = ({ current }) => {
           alt="Clima actual"
           priority
           loading="eager"
-          className="aspect-auto"
+          className="aspect-square"
         />
       </figure>
       <div className="ml-8">

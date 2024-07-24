@@ -65,4 +65,3 @@ export const mapSearchResult = (results) => {
   }));
   return mapped;
 };
-

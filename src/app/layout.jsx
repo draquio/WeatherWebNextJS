@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
   metadataBase: new URL('https://clima-draquio.vercel.app/'),
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col items-center h-[100%] bg-gradient-to-b from-[var(--color-bg-from)] to-[var(--color-bg-to)]">
+        <Analytics />
         <header className="max-w-4xl mt-8 w-full md:mb-0 mb-6">
           <Nav />
         </header>

@@ -9,7 +9,7 @@ const Home = () => {
       try {
           const response = await fetch(`https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IPINFO_API_KEY}`)
           const data = await response.json();
-          router.push(`/${data.city}`)
+          router.push(`/city=${data.city}`)
           
       } catch (error) {
         console.error(error);

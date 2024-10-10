@@ -1,4 +1,5 @@
 import Loader from "@/components/loaders/Loader";
+import { formatCityInverse } from "@/helpers/FormatCityName";
 import {
   getCurrent,
   getCurrentByHour,
@@ -14,8 +15,10 @@ const Minmax = dynamic(() => import("@/components/weather/Minmax"));
 const ChartStats = dynamic(() => import("@/components/weather/ChartStats"));
 
 const ResultPage = async ({ params }) => {
-  const { current, city, maxmin } = await getCurrent(params.city);
-  const futureweather = await getFutureWeather(params.city);
+  const formatCity = formatCityInverse(params.city)
+  const { current, city, maxmin } = await getCurrent(formatCity);
+  
+  const futureweather = await getFutureWeather(formatCity);
   const weatherByHour = await getCurrentByHour(city.city);
   if (!current) return <Loader />;
   return (

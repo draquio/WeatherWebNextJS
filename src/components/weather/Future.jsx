@@ -4,7 +4,7 @@ const Predictions = async ({ data, city }) => {
   if (!data) return "";
   return (
     <div className="pt-5">
-      <h2 className="text-2xl my-7 font-sans leading-[0]">Clima semanal en {city}</h2>
+      <h2 className="text-2xl my-7 font-sans leading-[0] inline">Clima semanal en {city}</h2>
       <div className="grid md:grid-cols-3 min-[500px]:grid-cols-2  grid-cols-1 gap-x-2 w-full gap-y-2">
         {data.map((weather, index) => (
           <div

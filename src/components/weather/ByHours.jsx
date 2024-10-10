@@ -3,7 +3,7 @@ import Image from "next/image";
 const ByHours = async ({ weatherByHour, city }) => {
   return (
     <section className="pt-5 pb-5">
-      <h2 className="text-2xl my-7 font-sans leading-[0]">Clima por hora en {city}</h2>
+      <h2 className="text-2xl my-7 font-sans leading-[0] inline">Clima por hora en {city}</h2>
       <div
         className="flex gap-2 overflow-x-auto flex-nowrap w-full pb-3"
         style={{ scrollbarColor: "#ffffff47 #072d76", scrollbarWidth: "thin" }}

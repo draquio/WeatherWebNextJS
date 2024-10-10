@@ -1,8 +1,10 @@
 import { useRouter } from "next/navigation";
+import { formatCity } from "@/helpers/FormatCityName";
 const SearchResultsItem = ({city, setQuery, setCity}) => {
     const router = useRouter();
     const handleTakeCity = () => {
-        router.replace(`/${city.value}`)
+        const citynameFormated = formatCity(city.value);
+        router.replace(`/${citynameFormated}`)
         setQuery("")
         setCity([])
     }

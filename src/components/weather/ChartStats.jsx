@@ -60,8 +60,8 @@ const ChartStats = ({ data, city }) => {
   };
 
   return (
-    <div className="h-[200px] mt-5 mb-10">
-      <h2 className="text-2xl my-7 font-sans leading-[0] inline">Clima en {city}</h2>
+    <div className="h-[200px] mt-5 md:mb-16 mb-20 flex flex-col gap-3">
+      <h2 className="text-2xl my-2 font-sans ">Clima en {city}</h2>
       <Line
         data={info}
         options={options}
